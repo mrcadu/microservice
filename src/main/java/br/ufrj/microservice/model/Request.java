@@ -18,7 +18,7 @@ public class Request {
     private String body;
     private String contentType;
     public Request(HttpServletRequest request) {
-        this.ip = ip.equals("0:0:0:0:0:0:0:1") ? "127.0.0.1" : request.getRemoteAddr();
+        this.ip = request.getRemoteAddr().equals("0:0:0:0:0:0:0:1") ? "127.0.0.1" : request.getRemoteAddr();
         this.userAgent = request.getHeader("User-Agent");
         this.url = request.getRequestURL().toString();
         try {
